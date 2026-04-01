@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Task Planner</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background-color: #f9f9f9; }
+        .container { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        .result { margin-top: 20px; padding: 15px; background: #e9ecef; border-left: 5px solid #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Task Planner Agent 🤖</h1>
+        <form method="POST">
+            <p>Enter your tasks (one per line):</p>
+            <textarea name="tasks" rows="6" placeholder="e.g., Buy milk, Finish report..."></textarea>
+            <button type="submit">Analyze Tasks</button>
+        </form>
+
+        {% if results %}
+        <div class="result">
+            <h3>Summary:</h3>
+            <p>{{ results.summary }}</p>
+            <h3>Categories:</h3>
+            <p style="white-space: pre-wrap;">{{ results.categories }}</p>
+            <h3>Priority:</h3>
+            <p style="white-space: pre-wrap;">{{ results.priority }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
